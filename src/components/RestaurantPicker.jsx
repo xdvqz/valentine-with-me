@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { IoMdRestaurant } from "react-icons/io";
 import { FaUtensils, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import mieImage from "../assets/mie.jpg";
+import mieImage from "../assets/demie.jpg";
 import ketoprakImage from "../assets/ketoprak.jpg";
 import taichanImage from "../assets/taichan.jpg";
 import pecelImage from "../assets/pecel-ayam.jpg";
@@ -11,7 +11,7 @@ import sushiImage from "../assets/sushi.jpg";
 const restaurants = [
   {
     id: 1,
-    name: "Mie Surabaya",
+    name: "Bakmie",
     image: mieImage,
     icon: <IoMdRestaurant className="text-xl" />,
   },

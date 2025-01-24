@@ -15,7 +15,7 @@ export default function FinalPage({ date, location, restaurant, onReset }) {
       exit={{ opacity: 0, scale: 1.2 }}
       className="text-center"
     >
-      <h2 className="text-2xl font-bold text-pink-600 mb-4 flex items-center justify-center gap-2">
+      <h2 className="text-2xlxl font-bold text-pink-600 mb-4 flex items-center justify-center gap-2">
         <FaHeart className="text-red-500" /> Our Perfect Date Plan
       </h2>
 
@@ -63,7 +63,7 @@ export default function FinalPage({ date, location, restaurant, onReset }) {
           </div>
         </div>
 
-        <p className="text-pink-500 font-bold text-lg mt-3">
+        <p className="text-pink-500 font-bold text-sm mt-3">
           Can't wait for our special day! 💝
         </p>
       </div>

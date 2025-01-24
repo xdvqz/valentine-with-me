@@ -3,6 +3,8 @@ import { useState } from "react";
 export default function DatePicker({ onNext, onPrev, setDate }) {
   const [selectedDate, setSelectedDate] = useState("");
 
+  const today = new Date().toISOString().split("T")[0];
+
   const handleDateChange = (e) => {
     setSelectedDate(e.target.value);
     setDate(e.target.value);
@@ -20,6 +22,7 @@ export default function DatePicker({ onNext, onPrev, setDate }) {
       </h2>
       <input
         type="date"
+        min={today}
         onChange={handleDateChange}
         className="w-full p-3 border-2 border-pink-300 rounded-lg mb-6 focus:border-pink-500 focus:outline-none"
       />
