@@ -1,13 +1,22 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+
 export default function DatePicker({ onNext, onPrev, setDate }) {
   const [selectedDate, setSelectedDate] = useState("");
 
+  // Format today's date as YYYY-MM-DD
   const today = new Date().toISOString().split("T")[0];
 
   const handleDateChange = (e) => {
-    setSelectedDate(e.target.value);
-    setDate(e.target.value);
+    const selectedValue = e.target.value;
+    const selectedTimestamp = new Date(selectedValue).getTime();
+    const todayTimestamp = new Date(today).getTime();
+
+    // Only allow dates from today onwards
+    if (selectedTimestamp >= todayTimestamp) {
+      setSelectedDate(selectedValue);
+      setDate(selectedValue);
+    }
   };
 
   return (
@@ -23,6 +32,8 @@ export default function DatePicker({ onNext, onPrev, setDate }) {
       <input
         type="date"
         min={today}
+        max="2025-12-31"
+        value={selectedDate}
         onChange={handleDateChange}
         className="w-full p-3 border-2 border-pink-300 rounded-lg mb-6 focus:border-pink-500 focus:outline-none"
       />
