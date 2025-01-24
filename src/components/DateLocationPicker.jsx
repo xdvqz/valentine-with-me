@@ -10,11 +10,12 @@ import cinemaImage from "../assets/cinema.jpg";
 import aquariumImage from "../assets/aquarium.jpg";
 import museumImage from "../assets/museum.jpg";
 import coffeImage from "../assets/coffe.jpg";
-
+import bowlingImage from "../assets/Bowling.jpg";
+import arcadeImage from "../assets/arcade.jpg";
 const locations = [
   {
     id: 1,
-    name: "Watch Movie Together",
+    name: "Movie Night",
     image: cinemaImage,
   },
   {
@@ -31,6 +32,16 @@ const locations = [
     id: 4,
     name: "Coffe Date",
     image: coffeImage,
+  },
+  {
+    id: 5,
+    name: "Arcade Date",
+    image: arcadeImage,
+  },
+  {
+    id: 6,
+    name: "Bowling Date",
+    image: bowlingImage,
   },
 ];
 
@@ -86,7 +97,12 @@ export default function DateLocationPicker({ onNext, onPrev, setLocation }) {
         </button>
         <button
           onClick={onNext}
-          className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full flex items-center gap-2 transition-all"
+          disabled={!selectedId}
+          className={`${
+            !selectedId
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-pink-500 hover:bg-pink-600"
+          } text-white font-bold py-2 px-6 rounded-full flex items-center gap-2 transition-all`}
         >
           Next <FaArrowRight />
         </button>

@@ -11,14 +11,17 @@ import FlowerPetals from "./components/FlowerPetals";
 export default function App() {
   const [step, setStep] = useState(0);
   const [date, setDate] = useState("");
-  const [location, setLocation] = useState(null);
-  const [restaurant, setRestaurant] = useState(null);
+  const [location, setLocation] = useState("");
+  const [restaurant, setRestaurant] = useState("");
   const [showPetals, setShowPetals] = useState(false);
+  const [accepted, setAccepted] = useState(false);
 
   const nextStep = () => setStep(step + 1);
   const prevStep = () => setStep(step - 1);
 
   const handleFinalSubmit = () => {
+    if (!date || !location || !restaurant) return;
+
     setShowPetals(true);
     setTimeout(() => {
       setStep(5);
@@ -29,9 +32,10 @@ export default function App() {
   const reset = () => {
     setStep(0);
     setDate("");
-    setLocation(null);
-    setRestaurant(null);
+    setLocation("");
+    setRestaurant("");
     setShowPetals(false);
+    setAccepted(false);
   };
 
   return (
@@ -40,16 +44,31 @@ export default function App() {
       <div className="w-full max-w-[95%] sm:max-w-[85%] md:max-w-xl bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-100/50 to-transparent pointer-events-none" />
         <AnimatePresence mode="wait">
-          {step === 0 && <Welcome onNext={nextStep} />}
+          {step === 0 && (
+            <Welcome
+              onNext={nextStep}
+              setAccepted={setAccepted}
+              accepted={accepted}
+              disabled={!accepted}
+            />
+          )}
           {step === 1 && <ThankYou onNext={nextStep} />}
           {step === 2 && (
-            <DatePicker onNext={nextStep} onPrev={prevStep} setDate={setDate} />
+            <DatePicker
+              onNext={nextStep}
+              onPrev={prevStep}
+              setDate={setDate}
+              date={date}
+              disabled={!date}
+            />
           )}
           {step === 3 && (
             <DateLocationPicker
               onNext={nextStep}
               onPrev={prevStep}
               setLocation={setLocation}
+              location={location}
+              disabled={!location}
             />
           )}
           {step === 4 && (
@@ -57,9 +76,11 @@ export default function App() {
               onNext={handleFinalSubmit}
               onPrev={prevStep}
               setRestaurant={setRestaurant}
+              restaurant={restaurant}
+              disabled={!restaurant}
             />
           )}
-          {step === 5 && (
+          {step === 5 && date && location && restaurant && (
             <FinalPage
               date={date}
               location={location}

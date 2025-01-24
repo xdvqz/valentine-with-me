@@ -15,7 +15,7 @@ export default function ThankYou({ onNext }) {
 
         <div className="flex justify-center items-center mb-6">
           <iframe
-            src="https://tenor.com/embed/22536058"
+            src="https://tenor.com/embed/17039177668047803738"
             className="w-72 h-72 rounded-2xl shadow-lg mx-auto"
             frameBorder="0"
           />

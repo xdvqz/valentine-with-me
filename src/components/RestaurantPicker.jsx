@@ -4,32 +4,45 @@ import { IoMdRestaurant } from "react-icons/io";
 import { FaUtensils, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import mieImage from "../assets/mie.jpg";
 import ketoprakImage from "../assets/ketoprak.jpg";
-import fancyImage from "../assets/fancy.jpg";
+import taichanImage from "../assets/taichan.jpg";
 import pecelImage from "../assets/pecel-ayam.jpg";
-
+import gyukakuImage from "../assets/gyukaku.jpg";
+import sushiImage from "../assets/sushi.jpg";
 const restaurants = [
   {
     id: 1,
-    name: "Mie Ayam Surabaya",
+    name: "Mie Surabaya",
     image: mieImage,
     icon: <IoMdRestaurant className="text-xl" />,
   },
   {
     id: 2,
-    name: "Ketoprak",
+    name: "Ketoprak 🤤",
     image: ketoprakImage,
     icon: <IoMdRestaurant className="text-xl" />,
   },
   {
     id: 3,
-    name: "Fine Dining",
-    image: fancyImage,
+    name: "Taichan",
+    image: taichanImage,
     icon: <IoMdRestaurant className="text-xl" />,
   },
   {
     id: 4,
     name: "Pecel",
     image: pecelImage,
+    icon: <IoMdRestaurant className="text-xl" />,
+  },
+  {
+    id: 5,
+    name: "Gyukaku",
+    image: gyukakuImage,
+    icon: <IoMdRestaurant className="text-xl" />,
+  },
+  {
+    id: 6,
+    name: "Sushi",
+    image: sushiImage,
     icon: <IoMdRestaurant className="text-xl" />,
   },
 ];
@@ -86,7 +99,12 @@ export default function RestaurantPicker({ onNext, onPrev, setRestaurant }) {
         </button>
         <button
           onClick={onNext}
-          className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full flex items-center gap-2 transition-all"
+          disabled={!selectedId}
+          className={`${
+            !selectedId
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-pink-500 hover:bg-pink-600"
+          } text-white font-bold py-2 px-6 rounded-full flex items-center gap-2 transition-all`}
         >
           Next <FaArrowRight />
         </button>

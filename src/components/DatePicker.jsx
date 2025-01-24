@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
-
+import { useState } from "react";
 export default function DatePicker({ onNext, onPrev, setDate }) {
+  const [selectedDate, setSelectedDate] = useState("");
+
+  const handleDateChange = (e) => {
+    setSelectedDate(e.target.value);
+    setDate(e.target.value);
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, x: 100 }}
@@ -13,7 +20,7 @@ export default function DatePicker({ onNext, onPrev, setDate }) {
       </h2>
       <input
         type="date"
-        onChange={(e) => setDate(e.target.value)}
+        onChange={handleDateChange}
         className="w-full p-3 border-2 border-pink-300 rounded-lg mb-6 focus:border-pink-500 focus:outline-none"
       />
       <div className="flex justify-between">
@@ -25,7 +32,12 @@ export default function DatePicker({ onNext, onPrev, setDate }) {
         </button>
         <button
           onClick={onNext}
-          className="bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-6 rounded-full"
+          disabled={!selectedDate}
+          className={`${
+            !selectedDate
+              ? "bg-gray-400 cursor-not-allowed"
+              : "bg-pink-500 hover:bg-pink-600"
+          } text-white font-bold py-2 px-6 rounded-full transition-all`}
         >
           Next
         </button>
