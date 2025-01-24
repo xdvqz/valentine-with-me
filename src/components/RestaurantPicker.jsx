@@ -22,7 +22,7 @@ const restaurants = [
   },
   {
     id: 3,
-    name: "Fancy Dining",
+    name: "Fine Dining",
     image: fancyImage,
     icon: <IoMdRestaurant className="text-xl" />,
   },
