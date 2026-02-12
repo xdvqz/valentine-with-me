@@ -2,10 +2,10 @@ import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import Welcome from "./components/welcome.jsx";
 import ThankYou from "./components/thankyou.jsx";
-import DatePicker from "./components/datepicker.jsx";
+import DatePicker from "./components/DatePicker.jsx";
 import DateLocationPicker from "./components/datelocationpicker.jsx";
-import RestaurantPicker from "./components/restaurantpicker.jsx";
-import FinalPage from "./components/finalpage.jsx";
+import RestaurantPicker from "./components/RestaurantPicker.jsx";
+import FinalPage from "./components/FinalPage.jsx";
 import FlowerPetals from "./components/flowerpetals.jsx";
 
 export default function App() {
