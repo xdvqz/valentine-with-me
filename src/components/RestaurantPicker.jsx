@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoMdRestaurant } from "react-icons/io";
 import { FaUtensils, FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import mieImage from "../assets/demie.jpg";
-import ketoprakImage from "../assets/ketoprak.jpg";
+import nasigoreng from "../assets/nasigoreng.jpg";
 import taichanImage from "../assets/taichan.jpg";
 import pecelImage from "../assets/pecel-ayam.jpg";
 import gyukakuImage from "../assets/gyukaku.jpg";
@@ -17,8 +17,8 @@ const restaurants = [
   },
   {
     id: 2,
-    name: "Ketoprak 🤤",
-    image: ketoprakImage,
+    name: "Nasi Goreng",
+    image: nasigoreng,
     icon: <IoMdRestaurant className="text-xl" />,
   },
   {
@@ -64,28 +64,28 @@ export default function RestaurantPicker({ onNext, onPrev, setRestaurant }) {
       <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center flex items-center justify-center gap-2">
         <FaUtensils /> Pilih kamu mau mam apa
       </h2>
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 max-h-[60vh] overflow-y-auto p-2">
         {restaurants.map((restaurant) => (
           <div
             key={restaurant.id}
             onClick={() => handleSelect(restaurant)}
-            className={`cursor-pointer p-4 border-2 rounded-lg transition-all hover:shadow-lg group
+            className={`cursor-pointer p-2 border-2 rounded-xl transition-all hover:shadow-lg group
               ${
                 selectedId === restaurant.id
-                  ? "border-pink-500 shadow-lg scale-[1.02]"
-                  : "border-pink-200 hover:border-pink-500"
+                  ? "border-pink-500 shadow-lg scale-[1.02] bg-pink-50"
+                  : "border-pink-100 hover:border-pink-400 bg-white"
               }`}
           >
-            <div className="overflow-hidden rounded">
+            <div className="aspect-square overflow-hidden rounded-lg">
               <img
                 src={restaurant.image}
                 alt={restaurant.name}
-                className="w-full h-32 object-cover rounded mb-2 contrast-105 group-hover:scale-105 transition-all duration-300"
+                className="w-full h-full object-cover contrast-105 group-hover:scale-110 transition-all duration-500"
               />
             </div>
-            <div className="flex items-center justify-center gap-2 mt-2">
-              {restaurant.icon}
-              <p className="font-medium">{restaurant.name}</p>
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <span className="text-pink-500">{restaurant.icon}</span>
+              <p className="font-semibold text-sm md:text-base text-gray-700">{restaurant.name}</p>
             </div>
           </div>
         ))}

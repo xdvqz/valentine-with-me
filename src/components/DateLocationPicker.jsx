@@ -62,28 +62,28 @@ export default function DateLocationPicker({ onNext, onPrev, setLocation }) {
       <h2 className="text-2xl font-bold text-pink-600 mb-6 text-center flex items-center justify-center gap-2">
         <FaMapMarkerAlt /> Jangan terserah, ayo pilih
       </h2>
-      <div className="grid grid-cols-2 gap-4 mb-6">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-6 max-h-[60vh] overflow-y-auto p-2">
         {locations.map((location) => (
           <div
             key={location.id}
             onClick={() => handleSelect(location)}
-            className={`cursor-pointer p-4 border-2 rounded-lg transition-all hover:shadow-lg group
+            className={`cursor-pointer p-2 border-2 rounded-xl transition-all hover:shadow-lg group
               ${
                 selectedId === location.id
-                  ? "border-pink-500 shadow-lg scale-[1.02]"
-                  : "border-pink-200 hover:border-pink-500"
+                  ? "border-pink-500 shadow-lg scale-[1.02] bg-pink-50"
+                  : "border-pink-100 hover:border-pink-400 bg-white"
               }`}
           >
-            <div className="overflow-hidden rounded">
+            <div className="aspect-square overflow-hidden rounded-lg">
               <img
                 src={location.image}
                 alt={location.name}
-                className="w-full h-32 object-cover rounded mb-2 contrast-105 group-hover:scale-105 transition-all duration-300"
+                className="w-full h-full object-cover contrast-105 group-hover:scale-110 transition-all duration-500"
               />
             </div>
-            <div className="flex items-center justify-center gap-2 mt-2">
-              {location.icon}
-              <p className="font-medium">{location.name}</p>
+            <div className="flex items-center justify-center gap-2 mt-3">
+              <FaHeart className={`text-sm ${selectedId === location.id ? "text-pink-500" : "text-pink-200 group-hover:text-pink-400"}`} />
+              <p className="font-semibold text-sm md:text-base text-gray-700">{location.name}</p>
             </div>
           </div>
         ))}

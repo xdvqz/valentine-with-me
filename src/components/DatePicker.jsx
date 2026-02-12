@@ -6,6 +6,8 @@ export default function DatePicker({ onNext, onPrev, setDate }) {
 
   // Format today's date as YYYY-MM-DD
   const today = new Date().toISOString().split("T")[0];
+  const currentYear = new Date().getFullYear();
+  const maxDate = `${currentYear + 1}-12-31`;
 
   const handleDateChange = (e) => {
     const selectedValue = e.target.value;
@@ -32,7 +34,7 @@ export default function DatePicker({ onNext, onPrev, setDate }) {
       <input
         type="date"
         min={today}
-        max="2025-12-31"
+        max={maxDate}
         value={selectedDate}
         onChange={handleDateChange}
         className="w-full p-3 border-2 border-pink-300 rounded-lg mb-6 focus:border-pink-500 focus:outline-none"
