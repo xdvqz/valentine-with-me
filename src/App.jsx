@@ -1,12 +1,12 @@
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import Welcome from "./components/Welcome";
-import ThankYou from "./components/ThankYou";
-import DatePicker from "./components/DatePicker";
-import DateLocationPicker from "./components/DateLocationPicker";
-import RestaurantPicker from "./components/RestaurantPicker";
-import FinalPage from "./components/FinalPage";
-import FlowerPetals from "./components/FlowerPetals";
+import Welcome from "./components/welcome";
+import ThankYou from "./components/thankyou";
+import DatePicker from "./components/datepicker";
+import DateLocationPicker from "./components/datelocationpicker";
+import RestaurantPicker from "./components/restaurantpicker";
+import FinalPage from "./components/finalpage";
+import FlowerPetals from "./components/flowerpetals";
 
 export default function App() {
   const [step, setStep] = useState(0);

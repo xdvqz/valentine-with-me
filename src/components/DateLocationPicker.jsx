@@ -10,7 +10,7 @@ import cinemaImage from "../assets/cinema.jpg";
 import aquariumImage from "../assets/aquarium.jpg";
 import museumImage from "../assets/museum.jpg";
 import coffeImage from "../assets/coffe.jpg";
-import bowlingImage from "../assets/Bowling.jpg";
+import bowlingImage from "../assets/bowling.jpg";
 import arcadeImage from "../assets/arcade.jpg";
 const locations = [
   {
