@@ -39,7 +39,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 to-white flex items-center justify-center p-4 sm:p-6 md:p-8">
+    <div className="min-h-screen lowercase bg-gradient-to-b from-pink-50 to-white flex items-center justify-center p-4 sm:p-6 md:p-8">
       {showPetals && <FlowerPetals />}
       <div className="w-full max-w-[95%] sm:max-w-[85%] md:max-w-xl bg-white rounded-xl shadow-lg p-4 sm:p-6 md:p-8 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-pink-100/50 to-transparent pointer-events-none" />
